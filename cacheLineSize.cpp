@@ -14,7 +14,7 @@ int main() {
     map<int32_t, long long> results;
     for (int stride = startStride; stride <= endStride; stride <<= 1) {
         cout << "Computing stride " << stride << "\n";
-        results[stride] = loads(arrSize, stride, 10, 5, fabric, false, "us");
+        results[stride] = loads(arrSize, stride, 10, 10, fabric, false, "us");
     }
     printWithFactor(results);
     return 0;
