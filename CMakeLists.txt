@@ -3,4 +3,6 @@ project(CacheInfo)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CacheInfo cacheLineSize.cpp)
+add_executable(cacheLineSize cacheLineSize.cpp utils.cpp utils.h)
+
+add_executable(cacheSize cacheSize.cpp utils.cpp utils.h)
