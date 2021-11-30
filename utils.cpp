@@ -35,7 +35,11 @@ void myShuffle(vector<int32_t> &v) {
 }
 
 pair<char*, char**> RandomStep::createArray(int32_t size, int32_t stride) {
-    char *array = new char[size];
+    size_t space = 32 * 32 * 1024 * 1024;
+    void *array_old = new char[space];
+    char *array = (char *) align(1 << 20, size, array_old, space);
+    assert(array != nullptr);
+
     char **p = nullptr;
 
     vector<int32_t> ids;
@@ -124,4 +128,879 @@ long long loads(int32_t size, int32_t stride, int32_t factor, int32_t iterCount,
 
     delete [] array;
     return avg / iterCount;
+}
+
+
+
+// stride, iterCount, factor
+long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
+                     ArrayFabric &fabric, const string& unit) {
+    assert(stride >= sizeof(size_t));
+
+    int32_t size = stride * iterCount;
+
+
+    auto pair = fabric.createArray(size, stride);
+    char *array = pair.first;
+    char **p_start = pair.second;
+
+    long long avg = 0;
+
+    // Запоминаем в кеше элементы
+    char **p = p_start;
+    for (int i = 0; i < iterCount; ++i) {
+        p = (char **) (*p);
+    }
+
+    auto start = chrono::high_resolution_clock::now();
+    auto end = start;
+    switch (iterCount) {
+        case 1: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 2: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 3: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 4: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 5: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 6: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 7: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 8: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 9: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 10: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 11: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 12: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 13: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 14: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 15: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 16: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 17: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 18: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 19: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 20: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 21: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 22: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 23: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 24: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 25: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 26: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 27: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 28: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 29: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 30: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 31: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 32: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 33: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+        case 34: {
+            start = chrono::high_resolution_clock::now();
+            for (int j = 0; j < factor; ++j) {
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+                p = (char **) (*p);
+            }
+            end = chrono::high_resolution_clock::now();
+            break;
+        }
+    }
+
+    auto time = (end - start);
+    if (unit == "ms") {
+        avg = time / 1ms;
+    } else if (unit == "us") {
+        avg = time / 1us;
+    } else if (unit == "ns") {
+        avg = time / 1ns;
+    } else {
+        throw ("Unit " + unit + " not supported");
+    }
+
+    delete [] array;
+    return avg / factor;
 }
