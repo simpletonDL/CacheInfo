@@ -158,7 +158,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 1: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
+                for (int i = 0; i < 1; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -166,8 +168,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 2: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 2; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -175,9 +178,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 3: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 3; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -185,10 +188,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 4: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 4; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -196,11 +198,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 5: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 5; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -208,12 +208,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 6: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 6; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -221,13 +218,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 7: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 7; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -235,14 +228,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 8: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 8; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -250,15 +238,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 9: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 9; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -266,16 +248,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 10: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 10; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -283,17 +258,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 11: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 11; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -301,18 +268,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 12: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 12; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -320,19 +278,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 13: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 13; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -340,20 +288,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 14: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 14; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -361,21 +298,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 15: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 15; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -383,22 +308,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 16: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 16; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -406,23 +318,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 17: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 17; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -430,24 +328,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 18: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 18; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -455,25 +338,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 19: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 19; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -481,26 +348,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 20: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 20; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -508,27 +358,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 21: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 21; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -536,28 +368,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 22: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 22; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -565,29 +378,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 23: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 23; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -595,30 +388,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 24: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 24; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -626,31 +398,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 25: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 25; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -658,32 +408,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 26: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 26; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -691,33 +418,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 27: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 27; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -725,34 +428,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 28: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 28; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -760,35 +438,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 29: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 29; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -796,36 +448,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 30: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 30; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -833,37 +458,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 31: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 31; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -871,38 +468,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 32: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 32; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -910,39 +478,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 33: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 33; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
@@ -950,40 +488,9 @@ long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
         case 34: {
             start = chrono::high_resolution_clock::now();
             for (int j = 0; j < factor; ++j) {
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
-                p = (char **) (*p);
+                for (int i = 0; i < 34; ++i) {
+                    p = (char **) (*p);
+                }
             }
             end = chrono::high_resolution_clock::now();
             break;
