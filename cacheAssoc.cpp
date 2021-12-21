@@ -6,9 +6,6 @@
 
 using namespace std;
 
-#define KB (1 << 10)
-#define MB (KB * KB)
-
 class F0 {
 public:
     inline static void run() {

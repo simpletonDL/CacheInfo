@@ -130,7 +130,52 @@ long long loads(int32_t size, int32_t stride, int32_t factor, int32_t iterCount,
     return avg / iterCount;
 }
 
+// stride = L + bank_size, S = ?
+long long loadsForCacheLine(int32_t stride, int32_t readCount, int32_t bankSize,
+                            ArrayFabric &fabric, const string& unit) {
+    const int ITER_COUNT = 1000000;
+    const int AVG_FACTOR = 20;
 
+    stride += bankSize;
+    int32_t size = stride * readCount;
+    auto pair = fabric.createArray(size, stride);
+
+
+    char *array = pair.first;
+    char **p_start = pair.second;
+
+    long long avg = 0;
+    // Запоминаем в кеше элементы
+    char **p = p_start;
+    for (int i = 0; i < readCount; ++i) {
+        p = (char **) (*p);
+    }
+
+    // TODO: разворот цикла
+    auto start = chrono::high_resolution_clock::now();
+    #pragma unroll
+    for (int j = 0; j < AVG_FACTOR; ++j) {
+        #pragma unroll
+        for (int i = 0; i < ITER_COUNT; ++i) {
+            p = (char **) (*p);
+        }
+    }
+    auto end = chrono::high_resolution_clock::now();
+
+    auto time = (end - start);
+    if (unit == "ms") {
+        avg = time / 1ms;
+    } else if (unit == "us") {
+        avg = time / 1us;
+    } else if (unit == "ns") {
+        avg = time / 1ns;
+    } else {
+        throw ("Unit " + unit + " not supported");
+    }
+
+    delete [] array;
+    return avg / AVG_FACTOR;
+}
 
 // stride, iterCount, factor
 long long loadsFixed(int32_t stride, int32_t iterCount, size_t factor,
